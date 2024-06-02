@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
-import sequelize from "./confiq/database.js";
+import cors from "cors"; // Import cors
+import sequelize from "./config/database.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import path from "path";
@@ -13,6 +14,9 @@ const __dirname = path.resolve();
 
 // Middleware untuk parsing body JSON
 app.use(bodyParser.json());
+
+// Middleware untuk CORS
+app.use(cors());
 
 // Middleware untuk melayani file statis
 app.use("/public", express.static(path.join(__dirname, "public")));
