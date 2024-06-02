@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { sequelize } from "./models/index.js";
+import sequelize from "./confiq/database.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import path from "path";

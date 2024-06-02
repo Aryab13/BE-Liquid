@@ -1,9 +1,11 @@
 import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
 
-const sequelize = new Sequelize(process.env.DB_NAME || "liquid", process.env.DB_USER || "root", process.env.DB_PASSWORD || "", {
-  host: process.env.DB_HOST || "localhost",
+dotenv.config(); // Load environment variables from .env file
+
+const sequelize = new Sequelize(process.env.MYSQL_URL, {
   dialect: "mysql",
-  port: process.env.DB_PORT || 3306,
+  logging: false, // Optional: Disable logging
 });
 
 export default sequelize;
